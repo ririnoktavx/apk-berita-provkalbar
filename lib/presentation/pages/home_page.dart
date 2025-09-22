@@ -181,7 +181,6 @@ void showLoadingDialog(BuildContext context) {
                 final beritaProvider = Provider.of<BeritaProvider>(context, listen: false);
                 final semuaBerita = beritaProvider.beritaList;
 
-                
 
                 bool adaYangDisimpan = false;
                 bool dibatalkan = false;
@@ -350,16 +349,18 @@ void showLoadingDialog(BuildContext context) {
                     // }
 
 
+                   
+
                      try {
                             await SimpanLocalDataSource.instance.insertBerita(beritaMap);
                             beritaTersimpanSementara.add(berita.id);
                             adaYangDisimpan = true;
                           } catch (e) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(e.toString()),
-                                // Text("Gagal menyimpan: memori perangkat penuh")),
-                              ),
+                              const SnackBar(
+                                  content:
+                                      
+                                      Text("Gagal menyimpan: memori perangkat penuh")),
                             );
                             break; // hentikan loop karena storage penuh
                           }
@@ -738,7 +739,7 @@ void showLoadingDialog(BuildContext context) {
             shape: BoxShape.circle,
           ),
         ),
-        Icon(icon, size: 24, color: const Color(0xFF03a055)),
+        Icon(icon, size: 23, color: const Color(0xFF03a055)),
       ],
     ),
   );
